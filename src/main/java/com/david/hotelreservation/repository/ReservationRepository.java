@@ -9,7 +9,4 @@ import java.util.Date;
 import java.util.List;
 
 public interface ReservationRepository extends JpaRepository<Reservation, String> {
-
-    @Query("select r from Reservation where r.checkin =:initDate and r.checkout =: finishDate")
-    List<Reservation> find(@Param(value = "initDate") Date initDate ,@Param(value = "finishDate") Date finishDate);
 }
