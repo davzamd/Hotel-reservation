@@ -7,6 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ClientControllerShould {
@@ -28,5 +30,11 @@ public class ClientControllerShould {
         clientController.convertClientVOtoClient(clientVO,client);
 
         assertEquals("David",client.getName());
+    }
+
+    @Test
+    public void load_client() {
+        List<Client> client = clientController.findAll();
+        assertNotEquals(client.size(),0);
     }
 }

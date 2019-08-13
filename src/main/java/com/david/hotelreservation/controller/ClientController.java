@@ -7,6 +7,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +16,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/client")
-@Api(tags = "cliente")
+@Api(tags = "client")
 public class ClientController {
     private final ClientService clientService;
 
+    @Autowired
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
@@ -82,6 +84,7 @@ public class ClientController {
             @ApiResponse(code = 201,message = "Clients Found"),
             @ApiResponse(code = 404,message = "Clients not found")})
     public List<Client> findAll() {
+        System.out.println("test");
         return this.clientService.findAll();
     }
 
