@@ -39,4 +39,14 @@ public class ClientServiceImp implements ClientService {
     public List<Client> findByLastName(String lastName) {
         return clientRepository.findClientsByLastName(lastName);
     }
+
+    @Override
+    public Client findClientById(String id) {
+        return clientRepository.findClientsById(id);
+    }
+
+    @Override
+    public List<Client> findAll() {
+        return clientRepository.findAll();
+    }
 }
